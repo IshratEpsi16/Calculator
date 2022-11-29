@@ -1,23 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [output, resultFun] = useState('')
+  let clickFun = (event) => {
+    resultFun(output.concat(event.target.value))
+  }
+  let clearFun = () => {
+    resultFun('')
+  }
+  let calculate = () => {
+    resultFun(eval(output).toString())
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='h1'>Welcome to Calculator App</h1>
+      <div className='cal-body'>
+        <input type='text' className='display' placeholder='0' value={output} />
+        <input className='btn' value='7' onClick={clickFun} />
+        <input className='btn' value='8' onClick={clickFun} />
+        <input className='btn' value='9' onClick={clickFun} />
+        <input className='btn' value='+' onClick={clickFun} />
+        <input className='btn' value='4' onClick={clickFun} />
+        <input className='btn' value='5' onClick={clickFun} />
+        <input className='btn' value='6' onClick={clickFun} />
+        <input className='btn' value='-' onClick={clickFun} />
+        <input className='btn' value='1' onClick={clickFun} />
+        <input className='btn' value='2' onClick={clickFun} />
+        <input className='btn' value='3' onClick={clickFun} />
+        <input className='btn' value='*' onClick={clickFun} />
+        <input className='btn' value='.' onClick={clickFun} />
+        <input className='btn' value='0' onClick={clickFun} />
+        <input className='btn' value='%' onClick={clickFun} />
+        <input className='btn' value='/' onClick={clickFun} />
+        <input className='btn btn2' value='DEL' onClick={clearFun} />
+        <input className='btn btn2' value='=' onClick={calculate} />
+
+
+
+      </div>
+
+
     </div>
   );
 }
