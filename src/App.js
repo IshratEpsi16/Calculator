@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='h1'>Welcome to Calculator App</h1>
+      <h1 className=" text-slate-200 p-5 mt-5 font-bold text-4xl text-center">Welcome to Calculator App</h1>
       <div className='cal-body'>
         <input type='text' className='display' placeholder='0' value={output} />
         <input className='btn' value='7' onClick={clickFun} />
